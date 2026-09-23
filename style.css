@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --ink: #f4f1e9;
+  --muted: #89909b;
+  --line: #2c333a;
+  --orange: #ff6b35;
+  --yellow: #f5c451;
+  --navy: #111820;
+  --panel: #171e26;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #0d1319;
+  font-family: "Space Grotesk", sans-serif;
+  min-width: 320px;
+}
+.game-shell { max-width: 1440px; margin: 0 auto; padding: 0 5vw; }
+.topbar, .page-footer { display: flex; align-items: center; justify-content: space-between; }
+.topbar { height: 92px; border-bottom: 1px solid var(--line); }
+.brand { color: var(--ink); display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 700; letter-spacing: .12em; text-decoration: none; }
+.brand b { color: var(--orange); font-weight: 700; }
+.brand-mark { color: var(--orange); font-size: 27px; }
+.status-chip, .eyebrow, .game-label, .game-header > span:last-child, .footer-label, .page-footer {
+  color: var(--muted); font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: .12em;
+}
+.status-dot { display: inline-block; width: 7px; height: 7px; margin-right: 7px; border-radius: 50%; background: #52d273; box-shadow: 0 0 11px #52d273; }
+.hero { display: grid; grid-template-columns: .72fr 1.28fr; gap: clamp(30px, 6vw, 98px); align-items: center; min-height: calc(100vh - 158px); padding: 65px 0 58px; }
+.intro { padding-bottom: 15px; }
+.eyebrow { color: var(--orange); margin: 0 0 28px; }
+h1 { margin: 0; font-size: clamp(43px, 5vw, 76px); line-height: .97; letter-spacing: -.055em; font-weight: 600; }
+h1 em { color: var(--orange); font-style: normal; }
+.lead { color: #aeb4bc; font-size: 15px; line-height: 1.8; margin: 29px 0 42px; }
+.controls { display: flex; flex-direction: column; gap: 13px; color: #aeb4bc; font: 11px "DM Mono", monospace; }
+kbd { display: inline-flex; min-width: 22px; height: 22px; align-items: center; justify-content: center; margin-right: 5px; padding: 0 6px; border: 1px solid #46505b; border-radius: 3px; color: var(--ink); font: 10px "DM Mono", monospace; }
+.game-card { overflow: hidden; border: 1px solid #36404b; background: var(--panel); box-shadow: 0 22px 75px #06090d; }
+.game-header, .game-footer { display: flex; align-items: center; justify-content: space-between; }
+.game-header { height: 45px; padding: 0 19px; border-bottom: 1px solid #323b44; }
+.game-label { color: var(--ink); }
+.game-label b { color: var(--orange); }
+.canvas-wrap { position: relative; background: #17232f; }
+canvas { display: block; width: 100%; height: auto; image-rendering: auto; }
+.game-message { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #101923dd; text-align: center; }
+.game-message.hidden { display: none; }
+.message-kicker { color: var(--orange); font: 11px "DM Mono", monospace; letter-spacing: .2em; }
+.game-message h2 { margin: 6px 0 23px; font-size: clamp(30px, 4vw, 52px); letter-spacing: -.04em; }
+button { border: 0; cursor: pointer; font: 600 12px "DM Mono", monospace; letter-spacing: .08em; }
+.game-message button { padding: 13px 21px; color: var(--navy); background: var(--orange); }
+.game-message button span { padding-left: 20px; font-size: 17px; }
+.game-footer { height: 68px; padding: 0 20px; }
+.game-footer > div { min-width: 100px; }
+.footer-label { display: block; margin-bottom: 5px; }
+.game-footer strong { font-size: 18px; font-weight: 500; }
+.game-footer small { color: var(--muted); font: 10px "DM Mono", monospace; }
+.pause-button { padding: 10px 0; color: var(--muted); background: transparent; }
+.pause-button:hover { color: var(--ink); }
+.page-footer { padding: 0 0 24px; border-top: 1px solid var(--line); padding-top: 21px; }
+.page-footer b { color: var(--ink); font-weight: 400; }
+@media (max-width: 850px) {
+  .hero { grid-template-columns: 1fr; gap: 45px; padding-top: 48px; }
+  .intro { max-width: 550px; }
+}
+@media (max-width: 520px) {
+  .game-shell { padding: 0 18px; }
+  .topbar { height: 70px; }
+  .status-chip { display: none; }
+  .hero { min-height: auto; padding: 48px 0 42px; }
+  h1 { font-size: 48px; }
+  .lead { margin: 23px 0 30px; }
+  .controls { gap: 9px; }
+  .game-header { padding: 0 12px; }
+  .game-footer { padding: 0 12px; }
+  .page-footer { font-size: 8px; }
+}
